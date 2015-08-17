@@ -16,8 +16,15 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-def create_user first_name='elon', last_name='musk', email='elon@musk.com', password='elonmusk', password_confirmation='elonmusk'
-  User.create(first_name: first_name, last_name: last_name, email: email, password: password, password_confirmation: password_confirmation)
+def create_user first_name='elon', last_name='musk', city='Palo Alto', state='CA', email='elon@musk.com', password='elonmusk', password_confirmation='elonmusk'
+  User.create(first_name: first_name, last_name: last_name, city: city, state: state, email: email, password: password, password_confirmation: password_confirmation)
+end
+
+def sign_in user, password='elonmusk'
+  visit '/sessions/new'
+  fill_in 'Email', with: user.email
+  fill_in 'Password', with: password
+  click_button 'Sign in'
 end
 
 RSpec.configure do |config|

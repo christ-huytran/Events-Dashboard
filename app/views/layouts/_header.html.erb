@@ -1,0 +1,12 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="container">
+		<%= link_to '<i class="fa fa-pied-piper fa-4x"></i>'.html_safe, root_path, id: "logo" %>
+		<nav>
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to "Home",   root_path %></li>
+				<li><%= link_to "Help",   '#' %></li>
+				<li><%= link_to "Sign in", new_session_path %></li>
+			</ul>
+		</nav>
+	</div>
+</header>

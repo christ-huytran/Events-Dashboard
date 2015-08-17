@@ -1,0 +1,21 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	padding-top: 70px;
+}
+
+#logo {
+	float: left;
+	/*font-size: 1.7em;*/
+	/*color: #fff;*/
+	/*letter-spacing: -1px;*/
+}
+
+.inline {
+	display: inline-block;
+}
