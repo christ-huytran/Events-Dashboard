@@ -6,10 +6,9 @@ RSpec.describe 'signing in' do
 	end
 
 	it 'prompts for email and password' do
-		visit '/sessions/new'
+		visit '/signin'
 		expect(page).to have_field('Email')
 		expect(page).to have_field('Password')
 	end
 
-	it 
 end

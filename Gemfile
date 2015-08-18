@@ -31,6 +31,7 @@ gem 'hirb'
 gem 'bootstrap-sass', '~> 3.3.5'
 # gem "font-awesome-rails"
 gem 'font-awesome-sass'
+gem 'bootstrap-datepicker-rails'
 
 group :test, :development do
   gem 'rspec-rails'

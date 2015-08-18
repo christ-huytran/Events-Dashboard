@@ -1,7 +1,19 @@
 <div class='row'>
 	<h3 class='text-center'>Sign in</h3>
 	<div class='col-md-4 col-md-offset-4'>
-		<%= form_for(:session, url: sessions_path) do |f| %>
+		<% if flash.now[:error] %>
+			<div class='alert alert-danger'>
+				<%= flash.now[:error] %>
+			</div>
+		<% end %>
+
+		<% if flash[:danger] %>
+			<div class='alert alert-danger'>
+				<%= flash[:danger] %>
+			</div>
+		<% end %>
+
+		<%= form_for(:session, url: signin_path) do |f| %>
 			<div class='form-group'>
 				<%= f.label :email %>
 				<%= f.email_field :email, class: 'form-control' %>

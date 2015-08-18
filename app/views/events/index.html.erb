@@ -1,0 +1,69 @@
+<div class='row'>
+	<div class='col-md-8 col-md-offset-2'>
+		<h4>Here are some of the events in your state:</h4>
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>Date</th>
+				<th>Location</th>
+				<th>Host</th>
+				<th>Action/Status</th>
+			</tr>
+			<% @events.each do |e| %>
+				<% if same_state?(e.state) %>
+					<%= render :partial => 'layouts/events_list', :locals => {:e => e } %>
+				<% end %>
+			<% end %>
+		</table>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-8 col-md-offset-2'>
+		<h4>Here are some of the events in other states:</h4>
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>Date</th>
+				<th>Location</th>
+				<th>Host</th>
+				<th>Action/Status</th>
+			</tr>
+			<% @events.each do |e| %>
+				<% unless same_state?(e.state) %>
+					<%= render :partial => 'layouts/events_list', :locals => {:e => e } %>
+				<% end %>
+			<% end %>
+		</table>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-4 col-md-offset-4'>
+		<%= form_for @event do |f| %>
+			<div class='form-group'>
+				<%= f.label :name %>
+				<%= f.text_field :name, class: 'form-control' %>
+			</div>
+
+			<div class='form-group'>
+				<%= f.label :date, class: 'control-label' %>
+				<%= f.text_field :date, 'data-behaviour' => 'datepicker', class: 'datepicker form-control' %>
+			</div>
+
+			<div class='form-group inline'>
+				<%= f.label :city %>
+				<%= f.text_field :city, class: 'form-control' %>
+			</div>
+
+			<div class='form-group inline'>
+				<%= f.label :state %>
+				<%= f.select(:state, options_for_select(us_states, "WA"), {}, {class: 'form-control'}) %>
+			</div>
+
+			<div class='form-group'>
+				<%= f.submit "Add event", class: 'btn btn-primary form-control' %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<tr>
+	<td><%= link_to e.name, e %></td>
+	<td><%= e.date %></td>
+	<td><%= e.city %>, <%= e.state %></td>
+	<td><%= e.user.first_name %> <%= e.user.last_name %></td>
+	<% if hosting?(e) %>
+		<td><%= link_to "Edit", edit_event_path(e) %> <%= link_to "Delete", event_path(e), method: :delete %></td>
+	<% else %>
+		<% if joining?(e) %>
+			<td>Joining <%= link_to "Cancel", attend_path(event_id: e), method: 'delete' %></td>
+		<% else %>
+			<td><%= link_to "Join", attend_path(:event_id => e) %></td>
+		<% end %>
+	<% end %>
+</tr>
