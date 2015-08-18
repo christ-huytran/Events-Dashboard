@@ -1,0 +1,25 @@
+<%= form_for @event do |f| %>
+	<div class='form-group'>
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'form-control' %>
+	</div>
+
+	<div class='form-group'>
+		<%= f.label :date, class: 'control-label' %>
+		<%= f.text_field :date, 'data-behaviour' => 'datepicker', class: 'datepicker form-control' %>
+	</div>
+
+	<div class='form-group inline'>
+		<%= f.label :city %>
+		<%= f.text_field :city, class: 'form-control' %>
+	</div>
+
+	<div class='form-group inline'>
+		<%= f.label :state %>
+		<%= f.select(:state, options_for_select(us_states, @event.state), {}, {class: 'form-control'}) %>
+	</div>
+
+	<div class='form-group'>
+		<%= f.submit "Add event", class: 'btn btn-primary form-control' %>
+	</div>
+<% end %>

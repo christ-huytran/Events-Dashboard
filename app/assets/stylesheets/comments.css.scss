@@ -1,0 +1,14 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$lightgray: #cccccc;
+
+.comment-scroll-box {
+	overflow: scroll;
+	height: 80px;
+	border: 1px solid $lightgray;
+	border-radius: 5px;
+	padding: 0.8em;
+	margin-bottom: 1.5em;
+}
